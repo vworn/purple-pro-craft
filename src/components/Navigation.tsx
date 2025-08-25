@@ -51,16 +51,16 @@ const Navigation = () => {
     <>
       {/* Desktop Navigation */}
       <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 hidden md:block">
-        <Card className="gradient-secondary border-border/50 shadow-elevated backdrop-blur-md p-2">
+        <Card className="bg-card/90 backdrop-blur-md border-border/50 shadow-elevated p-2 hover-glow">
           <div className="flex items-center gap-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-smooth ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-smooth button-magic ${
                   activeSection === item.id
                     ? "gradient-primary text-primary-foreground shadow-glow"
-                    : "hover:bg-muted/50 text-muted-foreground hover:text-foreground"
+                    : "hover:bg-muted/50 text-muted-foreground hover:text-foreground hover-lift"
                 }`}
               >
                 {item.icon}
@@ -75,7 +75,7 @@ const Navigation = () => {
       <nav className="fixed top-4 right-4 z-50 md:hidden">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center shadow-glow"
+          className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center shadow-glow button-magic hover-bounce"
         >
           {isMenuOpen ? (
             <X className="w-6 h-6 text-primary-foreground" />
@@ -85,17 +85,17 @@ const Navigation = () => {
         </button>
 
         {isMenuOpen && (
-          <div className="absolute top-16 right-0 w-48">
-            <Card className="gradient-secondary border-border/50 shadow-elevated backdrop-blur-md p-2">
+          <div className="absolute top-16 right-0 w-48 animate-slide-up">
+            <Card className="bg-card/90 backdrop-blur-md border-border/50 shadow-elevated p-2 hover-glow">
               <div className="space-y-1">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-smooth text-left ${
+                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-smooth text-left button-magic ${
                       activeSection === item.id
                         ? "gradient-primary text-primary-foreground shadow-glow"
-                        : "hover:bg-muted/50 text-muted-foreground hover:text-foreground"
+                        : "hover:bg-muted/50 text-muted-foreground hover:text-foreground hover-lift"
                     }`}
                   >
                     {item.icon}

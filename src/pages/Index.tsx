@@ -1,3 +1,4 @@
+import ThemeToggle from "@/components/ThemeToggle";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Education from "@/components/Education";
@@ -8,7 +9,8 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background transition-smooth">
+      <ThemeToggle />
       <Navigation />
       <div id="home">
         <Hero />

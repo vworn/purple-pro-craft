@@ -8,6 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+
+    --primary: 270 85% 70%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 270 85% 80%;
+
+    --secondary: 240 4% 95%;
+    --secondary-foreground: 240 6% 20%;
+
+    --muted: 240 3% 92%;
+    --muted-foreground: 240 4% 50%;
+
+    --accent: 270 60% 65%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3% 88%;
+    --input: 240 3% 88%;
+    --ring: 270 85% 70%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients - Light Mode */
+    --gradient-primary: linear-gradient(135deg, hsl(270 85% 70%), hsl(270 85% 80%));
+    --gradient-secondary: linear-gradient(135deg, hsl(0 0% 100%), hsl(240 3% 98%));
+    --gradient-accent: linear-gradient(135deg, hsl(270 60% 65%), hsl(270 85% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(270 85% 70%), hsl(270 85% 80%), hsl(280 80% 85%));
+
+    /* Custom shadows - Light Mode */
+    --shadow-glow: 0 0 30px hsl(270 85% 70% / 0.4);
+    --shadow-card: 0 10px 30px -10px hsl(240 8% 6% / 0.1);
+    --shadow-elevated: 0 20px 40px -15px hsl(240 8% 6% / 0.15);
+    --shadow-button: 0 4px 15px hsl(270 85% 70% / 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
     --background: 240 8% 6%;
     --foreground: 240 5% 96%;
 
@@ -17,9 +66,9 @@ All colors MUST be HSL.
     --popover: 240 6% 8%;
     --popover-foreground: 240 5% 96%;
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 240 5% 96%;
-    --primary-glow: 262 83% 68%;
+    --primary: 270 85% 70%;
+    --primary-foreground: 240 8% 6%;
+    --primary-glow: 270 85% 80%;
 
     --secondary: 240 4% 16%;
     --secondary-foreground: 240 5% 96%;
@@ -27,31 +76,28 @@ All colors MUST be HSL.
     --muted: 240 4% 12%;
     --muted-foreground: 240 4% 64%;
 
-    --accent: 262 50% 45%;
-    --accent-foreground: 240 5% 96%;
+    --accent: 270 60% 65%;
+    --accent-foreground: 240 8% 6%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 240 5% 96%;
 
     --border: 240 4% 16%;
     --input: 240 4% 16%;
-    --ring: 262 83% 58%;
+    --ring: 270 85% 70%;
 
-    --radius: 0.75rem;
-
-    /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(262 83% 68%));
+    /* Custom gradients - Dark Mode */
+    --gradient-primary: linear-gradient(135deg, hsl(270 85% 70%), hsl(270 85% 80%));
     --gradient-secondary: linear-gradient(135deg, hsl(240 6% 8%), hsl(240 4% 12%));
-    --gradient-accent: linear-gradient(135deg, hsl(262 50% 45%), hsl(262 83% 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(270 60% 65%), hsl(270 85% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(270 85% 70%), hsl(270 85% 80%), hsl(280 80% 85%));
 
-    /* Custom shadows */
-    --shadow-glow: 0 0 30px hsl(262 83% 58% / 0.3);
+    /* Custom shadows - Dark Mode */
+    --shadow-glow: 0 0 30px hsl(270 85% 70% / 0.4);
     --shadow-card: 0 10px 30px -10px hsl(240 8% 6% / 0.8);
     --shadow-elevated: 0 20px 40px -15px hsl(240 8% 6% / 0.9);
-
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --shadow-button: 0 4px 15px hsl(270 85% 70% / 0.4);
+  }
 
     --sidebar-background: 0 0% 98%;
 
@@ -137,6 +183,10 @@ All colors MUST be HSL.
     background: var(--gradient-accent);
   }
 
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
@@ -147,6 +197,10 @@ All colors MUST be HSL.
 
   .shadow-elevated {
     box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
   }
 
   .transition-smooth {
@@ -165,6 +219,31 @@ All colors MUST be HSL.
     @apply transition-smooth hover:shadow-glow;
   }
 
+  .hover-bounce {
+    @apply transition-bounce hover:scale-110;
+  }
+
+  .hover-rotate {
+    @apply transition-smooth hover:rotate-3;
+  }
+
+  .hover-float {
+    @apply transition-smooth hover:-translate-y-2;
+  }
+
+  .button-magic {
+    @apply relative overflow-hidden transition-smooth hover:scale-105 hover:shadow-button;
+  }
+
+  .button-magic::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full transition-transform duration-500;
+  }
+
+  .button-magic:hover::before {
+    @apply translate-x-full;
+  }
+
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
   }
@@ -175,6 +254,14 @@ All colors MUST be HSL.
 
   .animate-scale-in {
     animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounceGentle 3s ease-in-out infinite;
   }
 }
 
@@ -208,5 +295,23 @@ All colors MUST be HSL.
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: var(--shadow-glow);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(270 85% 70% / 0.6);
+  }
+}
+
+@keyframes bounceGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
